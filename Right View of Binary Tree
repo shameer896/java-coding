@@ -1,0 +1,19 @@
+class Solution{
+    void rightView(Node node, ArrayList<Integer>ans, int count){
+        if(node==null){
+            return;
+        }
+        if(count==ans.size()){
+            ans.add(node.data);
+        }
+        rightView(node.right, ans, count+1);
+        rightView(node.left, ans, count+1);
+    }
+    //Function to return list containing elements of right view of binary tree.
+    ArrayList<Integer> rightView(Node node) {
+        //add code here.
+        ArrayList<Integer>ans=new ArrayList<>();
+        rightView(node, ans, 0);
+        return ans;
+    }
+}
